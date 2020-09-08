@@ -1,5 +1,5 @@
 {
-  "name": "@iwsllc/react-blog-examples",
+  "name": "@iwsio/react-blog-examples",
   "version": "0.1.0",
   "description": "Example React provider to show one way of using a modal via context API and bootstrap 4 styling.",
   "main": "dist/index.js",
