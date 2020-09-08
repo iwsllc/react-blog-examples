@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/iwsllc/react-bootstrap4-modal.git"
+    "url": "https://github.com/IWSLLC/react-blog-examples.git"
   },
   "keywords": [
     "react",
@@ -23,9 +23,9 @@
   "author": "Nathan Bridgewater",
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/iwsllc/react-bootstrap4-modal/issues"
+    "url": "https://github.com/IWSLLC/react-blog-examples/issues"
   },
-  "homepage": "https://github.com/iwsllc/react-bootstrap4-modal#readme",
+  "homepage": "https://github.com/IWSLLC/react-blog-examples",
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.11.0",
