@@ -31,9 +31,21 @@ const ModalProvider = ({children}) => {
       setDisable(true)
       handlers.confirm()
         .then((result) => {
+          if (result == null) return onCloseModal()
           if (!result) {
             setDisable(false)
             return // when falsey, don't close the modal.
+          }
+          if (typeof result === 'object') {
+            if (result.success) return onCloseModal()
+
+            if (result.props != null) {
+              let newProps = {...modalProps}
+              newProps.content.props = {...newProps.content.props, ...result.props} // shallow copy in the originals, then override them with any new ones.
+              setModalProps(newProps)
+            }
+            setDisable(false)
+            return
           }
           onCloseModal()
         })
