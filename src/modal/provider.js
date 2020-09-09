@@ -52,6 +52,17 @@ const ModalProvider = ({children}) => {
     } else onCloseModal() // close anyway; no confirm handler
   }
 
+  function addModalBackdrop() {
+    // add a div to the end of body with .modal-backdrop css; <div class="modal-backdrop fade show"></div>
+    let backdropDom = document.createElement('div')
+    backdropDom.className = 'modal-backdrop fade show'
+    document.body.appendChild(backdropDom)
+  }
+  function removeModalBackdrop() {
+    let backdropDom = document.querySelector('.modal-backdrop')
+    if (backdropDom != null) backdropDom.remove()
+  }
+
   useEffect(() => {
     if (!modalProps || !handlers) return
     setShow(true)
@@ -67,6 +78,9 @@ const ModalProvider = ({children}) => {
       // NOTE: clear state
       setModalProps(null)
       setHandlers(null)
+      removeModalBackdrop()
+    } else {
+      addModalBackdrop()
     }
   }, [show])
 
