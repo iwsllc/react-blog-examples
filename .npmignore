@@ -1,9 +1,4 @@
-.DS_Store
+.*
 /node_modules/
-.orig
 /test
 /src
-.eslintrc.json
-.envrc
-.travis.yml
-.babelrc.json
