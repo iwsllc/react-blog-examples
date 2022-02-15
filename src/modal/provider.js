@@ -1,24 +1,24 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import ModalContext from './context'
 import Modal from './modal'
 
-const ModalProvider = ({children}) => {
+const ModalProvider = ({ children }) => {
   const [show, setShow] = useState(false)
   const [modalProps, setModalProps] = useState(null)
   const [handlers, setHandlers] = useState(null)
   const [disable, setDisable] = useState(false)
 
-  function modal(content, props = {}, {...options}) {
-    let {title, close, confirm, header, footer} = options
-    setHandlers({close, confirm})
+  function modal(content, props = {}, { ...options }) {
+    const { title, close, confirm, header, footer } = options
+    setHandlers({ close, confirm })
     setModalProps({
       title,
       content: {
         type: content,
-        props,
+        props
       },
       header,
-      footer,
+      footer
     })
   }
 
@@ -40,8 +40,8 @@ const ModalProvider = ({children}) => {
             if (result.success) return onCloseModal()
 
             if (result.props != null) {
-              let newProps = {...modalProps}
-              newProps.content.props = {...newProps.content.props, ...result.props} // shallow copy in the originals, then override them with any new ones.
+              const newProps = { ...modalProps }
+              newProps.content.props = { ...newProps.content.props, ...result.props } // shallow copy in the originals, then override them with any new ones.
               setModalProps(newProps)
             }
             setDisable(false)
@@ -54,12 +54,12 @@ const ModalProvider = ({children}) => {
 
   function addModalBackdrop() {
     // add a div to the end of body with .modal-backdrop css; <div class="modal-backdrop fade show"></div>
-    let backdropDom = document.createElement('div')
+    const backdropDom = document.createElement('div')
     backdropDom.className = 'modal-backdrop fade show'
     document.body.appendChild(backdropDom)
   }
   function removeModalBackdrop() {
-    let backdropDom = document.querySelector('.modal-backdrop')
+    const backdropDom = document.querySelector('.modal-backdrop')
     if (backdropDom != null) backdropDom.remove()
   }
 
@@ -86,8 +86,9 @@ const ModalProvider = ({children}) => {
 
   return (
     <ModalContext.Provider value={{
-      modal,
-    }}>
+      modal
+    }}
+    >
       <>
         {children}
         <Modal
@@ -101,6 +102,5 @@ const ModalProvider = ({children}) => {
     </ModalContext.Provider>
   )
 }
-
 
 export default ModalProvider

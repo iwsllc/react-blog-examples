@@ -1,4 +1,4 @@
 import modal from './modal'
 
-export {modal}
-export default {modal}
+export { modal }
+export default { modal }
