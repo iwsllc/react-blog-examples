@@ -7,7 +7,8 @@ import JsonField from './json-field'
 const JsonCsvExample = forwardRef(({ resultUpdated }, ref) => {
   const [result, setResult] = useState('')
 
-  // I'm lifting state from the JsonField to here so we have `reset` ability from here as a composite component.
+  // I'm lifting state from the JsonField to here so we have `reset`
+  // ability from here as a composite component.
   const [jsonValues, setJsonValues] = useState({ items: initialItems, options: initialOptions })
   const [textValues, setTextValues] = useState({ items: JSON.stringify(initialItems, null, 2), options: JSON.stringify(initialOptions, null, 2) })
   const [valids, setValids] = useState({ items: true, options: true })
