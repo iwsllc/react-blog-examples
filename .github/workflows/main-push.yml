@@ -1,0 +1,21 @@
+name: Changes to main
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  run-tests:
+    if: ${{ !contains(github.event.head_commit.message, '#skip') }}
+    uses: ./.github/workflows/test.yaml
+    secrets: inherit
+  set-version:
+    needs: deploy-to-fly
+    if: ${{ !contains(github.event.head_commit.message, '#skip') }}
+    uses: ./.github/workflows/version.yaml
+    secrets: inherit
+  deploy-to-fly:
+    if: ${{ !contains(github.event.head_commit.message, '#skip') }}
+    needs: run-tests
+    uses: ./.github/workflows/publish.yaml
+    secrets: inherit
