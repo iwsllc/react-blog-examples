@@ -21,6 +21,7 @@
 	"plugins": [
 		"import",
 		"promise",
+		"vitest",
 		"react"
 	],
 
@@ -30,7 +31,10 @@
 		"window": "readonly",
 		"fetch": "readonly",
 		"google": "readonly",
-		"vi": "readonly"
+		"vi": "readonly",
+		"describe": "readonly",
+		"test": "readonly",
+		"expect": "readonly"
 	},
 
 	"settings": {

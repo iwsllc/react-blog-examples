@@ -1,6 +1,7 @@
-import { babel } from '@rollup/plugin-babel'
-import { nodeResolve } from '@rollup/plugin-node-resolve'
-import peerDepsExternal from 'rollup-plugin-peer-deps-external'
+import babel from '@rollup/plugin-babel'
+import resolve from '@rollup/plugin-node-resolve'
+// import peerDepsExternal from 'rollup-plugin-peer-deps-external'
+import commonjs from 'rollup-plugin-commonjs'
 
 export default {
 	external: [
@@ -15,14 +16,15 @@ export default {
 		preserveModulesRoot: 'src'
 	},
 	plugins: [
-		peerDepsExternal(),
-		nodeResolve({
+		resolve({
 			extensions: ['.js', '.jsx', '.css']
 		}),
+		// peerDepsExternal(),
 		babel({
 			exclude: 'node_modules/**',
 			babelHelpers: 'bundled',
 			presets: ['@babel/env', '@babel/preset-react']
-		})
+		}),
+		commonjs({ include: ['./index.js', 'node_modules/**'] })
 	]
 }
