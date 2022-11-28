@@ -1,6 +1,6 @@
 {
   "name": "@iwsio/react-blog-examples",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0",
   "description": "Example React components for blog posts.",
   "main": "dist/index.js",
   "exports": {
