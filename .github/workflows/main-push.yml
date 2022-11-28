@@ -10,12 +10,12 @@ jobs:
     uses: ./.github/workflows/test.yaml
     secrets: inherit
   set-version:
-    needs: deploy-to-fly
+    needs: run-tests
     if: ${{ !contains(github.event.head_commit.message, '#skip') }}
     uses: ./.github/workflows/version.yaml
     secrets: inherit
-  deploy-to-fly:
+  publish:
     if: ${{ !contains(github.event.head_commit.message, '#skip') }}
-    needs: run-tests
+    needs: set-version
     uses: ./.github/workflows/publish.yaml
     secrets: inherit
