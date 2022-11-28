@@ -1,9 +1,8 @@
 import React, { useState, forwardRef, useEffect } from 'react'
-import jsonCsv from '@iwsio/json-csv-core'
+import { toCsv } from '@iwsio/json-csv-core'
 import { items as initialItems, options as initialOptions } from './data'
 import JsonField from './json-field'
 
-const { toCsv } = jsonCsv
 // forwarding ref here because I was tinkering with hljs and the example dom
 const JsonCsvExample = forwardRef(({ resultUpdated }, ref) => {
 	const [result, setResult] = useState('')
@@ -64,33 +63,29 @@ const JsonCsvExample = forwardRef(({ resultUpdated }, ref) => {
 
 	return (
 		<form ref={ref}>
-			<div className="form-row">
-				<div className="col-md">
-					<JsonField
-						name="items"
-						label="Items"
-						value={textValues.items}
-						valid={valids.items}
-						onChange={onChange}
-					/>
-				</div>
-				<div className="col-md">
-					<JsonField
-						name="options"
-						label="Options"
-						value={textValues.options}
-						valid={valids.options}
-						onChange={onChange}
-					/>
-				</div>
+			<div className="flex flex-col sm:flex-row sm:gap-4">
+				<JsonField
+					name="items"
+					label="Items"
+					value={textValues.items}
+					valid={valids.items}
+					onChange={onChange}
+				/>
+				<JsonField
+					name="options"
+					label="Options"
+					value={textValues.options}
+					valid={valids.options}
+					onChange={onChange}
+				/>
 			</div>
 			<div className="form-row mt-3">
 				<div className="col">
-					<p>
-						<button type="button" className="btn btn-primary" onClick={convert}>Convert</button>
-						<button type="button" className="btn btn-secondary" onClick={reset}>Reset</button>
+					<p className="text-right gap-2">
+						<button type="button" className="btn btn-accent mr-2" onClick={reset}>Reset</button>
+						<button type="button" className="btn" onClick={convert}>Convert</button>
 					</p>
-					{result?.length ? <><h3>Results:</h3><pre><code className="language-javascript">{result}</code></pre></> : null}
+					{result?.length ? <><h2 className="text-2xl font-semibold">Results:</h2><pre><code className="language-javascript">{result}</code></pre></> : null}
 				</div>
 			</div>
 		</form>
