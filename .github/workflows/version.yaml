@@ -18,7 +18,3 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           npm version patch -ws --include-workspace-root
-          git add . -A
-          git commit -m "CI - package versions; #skip"
-          git push
-          git push --tags

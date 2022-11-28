@@ -10,7 +10,9 @@
     "demo-bootstrap"
   ],
   "scripts": {
-    "build": "npm run build --if-present -w package"
+    "build": "npm run build --if-present -w package",
+    "version": "git add .",
+    "postversion": "git push && git push --tags"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.8",
