@@ -1,27 +1,24 @@
 {
 	"extends": [
 		"eslint:recommended",
+		"plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+		"plugin:promise/recommended",
 		"plugin:react/recommended",
-		"plugin:promise/recommended"
+		"plugin:node/recommended"
 	],
 
-	"parserOptions": {
-		"ecmaVersion": 2022,
-		"ecmaFeatures": {
-			"jsx": true
-		},
-		"sourceType": "module"
-	},
+	"parser": "@typescript-eslint/parser",
 	
 	"env": {
-		"es2021": true,
 		"node": true
 	},
 
 	"plugins": [
 		"import",
+		"node",
 		"promise",
-		"vitest",
+		"@typescript-eslint",
 		"react"
 	],
 
@@ -31,25 +28,42 @@
 		"window": "readonly",
 		"fetch": "readonly",
 		"google": "readonly",
-		"vi": "readonly",
-		"describe": "readonly",
-		"test": "readonly",
-		"expect": "readonly"
+		"vi": "readonly"
 	},
 
 	"settings": {
 		"react": {
 			"version": "18"
 		},
-		"linkComponents": [
-			"Link"
-		],
 		"import/resolver": {
 			"node": {
-				"extensions": [".js", ".jsx"]
+				"extensions": [".ts",".tsx",".js",".jsx"]
 			}
 		}
 	},
+
+	"overrides": [
+		{
+			"files": ["*.test.ts", "*.test.tsx"],
+			"rules": {
+				"no-unused-expressions": "off"
+			},
+			"globals": {
+				"describe":"readonly",
+				"expect":"readonly",
+				"test":"readonly",
+				"it":"readonly",
+				"vi":"readonly"
+			}
+		},
+		{
+			"files": ["*.d.ts"],
+			"rules": {
+				"@typescript-eslint/no-unused-vars": "off",
+				"no-unused-vars": "off"
+			}
+		}
+	],
 
 	"rules": {
 		"no-var": "warn",
@@ -184,8 +198,8 @@
 		"no-this-before-super": "error",
 		"no-throw-literal": "error",
 		"no-trailing-spaces": "error",
-		"no-undef": "error",
-		"no-undef-init": "error",
+		"no-undef": "off", // typescript
+		"no-undef-init": "off",
 		"no-unexpected-multiline": "error",
 		"no-unmodified-loop-condition": "error",
 		"no-unneeded-ternary": ["error", { "defaultAssignment": false }],
@@ -203,7 +217,7 @@
 			"caughtErrors": "none",
 			"ignoreRestSiblings": true,
 			"vars": "all",
-			"varsIgnorePattern": "^React$"
+			"varsIgnorePattern": "React"
 		}],
 		"no-use-before-define": ["error", { "functions": false, "classes": false, "variables": false }],
 		"no-useless-call": "error",
@@ -328,6 +342,14 @@
 		}],
 		"react/no-render-return-value": "error",
 		"react/require-render-return": "error",
-		"react/self-closing-comp": "error"
+		"react/self-closing-comp": "error",
+
+		"@typescript-eslint/no-explicit-any": "off",
+		"@typescript-eslint/no-unused-vars": ["error", {
+			"varsIgnorePattern": "React"
+		}],
+
+		"node/no-missing-import": "off",
+		"node/no-unsupported-features/es-syntax": "off"
 	}
 }
