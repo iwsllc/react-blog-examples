@@ -9,9 +9,11 @@ const JsonField = ({ name, label, onChange }) => {
 		<div className="grow">
 			<label className="label flex-col items-start prose">
 				<h3>{label}</h3>
-				<TextAreaField name={name} onChange={onChange} className={`w-full font-mono textarea textarea-bordered ${!valid ? 'is-invalid' : ''}`} rows={25} required />
+				<div className="w-full indicator">
+					{!valid && <span className="indicator-item badge badge-error">Invalid JSON</span>}
+					<TextAreaField name={name} onChange={onChange} className={`w-full font-mono textarea textarea-bordered ${!valid ? 'textarea-error' : ''}`} rows={25} required />
+				</div>
 			</label>
-			{!valid ? <div className="invalid-feedback">Broken JSON</div> : null}
 		</div>
 	)
 }

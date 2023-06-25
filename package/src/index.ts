@@ -1,1 +1,1 @@
-export { default as JsonCsvExample } from './json-csv'
+export { JsonCsvExample } from './json-csv'
