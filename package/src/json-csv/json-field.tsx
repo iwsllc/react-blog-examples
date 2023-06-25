@@ -10,7 +10,7 @@ const JsonField = ({ name, label, onChange }) => {
 			<label className="label flex-col items-start prose">
 				<h3>{label}</h3>
 				<div className="w-full indicator">
-					{!valid && <span className="indicator-item badge badge-error">Invalid JSON</span>}
+					{!valid && <span className="indicator-item indicator-center sm:indicator-end badge badge-error">Invalid JSON</span>}
 					<TextAreaField name={name} onChange={onChange} className={`w-full font-mono textarea textarea-bordered ${!valid ? 'textarea-error' : ''}`} rows={25} required />
 				</div>
 			</label>
