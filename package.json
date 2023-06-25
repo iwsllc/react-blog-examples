@@ -1,6 +1,6 @@
 {
-  "name": "@iwsio/react-blog-examples",
-  "version": "1.0.0",
+  "name": "@iwsio/react-blog-examples-root",
+  "version": "2.0.0-alpha.1",
   "description": "Example React provider to show one way of using a modal via context API and bootstrap 4 styling.",
   "author": "Nathan Bridgewater",
   "license": "BSD-3-Clause",
@@ -11,14 +11,11 @@
   ],
   "scripts": {
     "build": "npm run build --if-present -w package",
-    "version": "git add .",
-    "postversion": "git push && git push --tags"
+    "dev": "npm-run-all -p dev:*",
+    "dev:demo": "npm start -w demo",
+    "dev:package": "npm run watch -w package"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.8",
-    "daisyui": "^2.42.1",
-    "postcss": "^8.4.19",
-    "postcss-cli": "^10.0.0",
-    "tailwindcss": "^3.2.4"
+    "npm-run-all": "^4.1.5"
   }
 }

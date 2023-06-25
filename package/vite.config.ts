@@ -1,4 +1,5 @@
-// vite.config.ts
+/// <reference types="vitest" />
+
 import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
@@ -6,6 +7,6 @@ export default defineConfig({
 		globals: true,
 		mockReset: true,
 		environment: 'jsdom',
-		setupFiles: ['./setupTests.js']
+		setupFiles: ['./setupTests']
 	}
 })

@@ -13,11 +13,11 @@ describe('Example React', function() {
 
 	test('should render without the name', async() => {
 		const { getByText } = render(<Hello />)
-		expect(getByText('Hey, stranger')).toBeInTheDocument()
+		expect(getByText('Hey, stranger')).to.be.ok
 	})
 
 	test('should render without the name', async() => {
 		const { getByText } = render(<Hello name="Fred" />)
-		expect(getByText('Hello, Fred!')).toBeInTheDocument()
+		expect(getByText('Hello, Fred!')).to.be.ok
 	})
 })
