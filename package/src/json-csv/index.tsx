@@ -78,7 +78,7 @@ export const JsonCsvExample = forwardRef<HTMLFormElement, JsonCsvExampleProps>((
 							<button type="button" className="btn btn-accent mr-2" onClick={reset}>Reset</button>
 							<button type="submit" className="btn">Convert</button>
 						</p>
-						{result?.length ? <><h2 className="text-2xl font-semibold">Results:</h2><pre><code className="language-javascript">{result}</code></pre></> : null}
+						{result?.length ? <><h2 className="text-2xl font-semibold">Results:</h2><pre><code className="language-csv">{result}</code></pre></> : null}
 					</div>
 				</div>
 			</ValidatedForm>
