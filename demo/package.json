@@ -1,6 +1,6 @@
 {
   "name": "@iwsio/react-blog-examples-demo",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "private": true,
   "dependencies": {
     "react": "^18.2.0",
