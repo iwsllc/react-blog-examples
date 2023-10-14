@@ -36,7 +36,7 @@
   },
   "homepage": "https://github.com/IWSLLC/react-blog-examples",
   "devDependencies": {
-    "@iwsio/json-csv-core": "^1.0.0",
+    "@iwsio/json-csv-core": "^1.1.2",
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
@@ -57,7 +57,6 @@
     "react": "^18"
   },
   "dependencies": {
-    "@iwsio/forms": "^0",
-    "@iwsio/json-csv-core": "^1"
+    "@iwsio/forms": "^0"
   }
 }
