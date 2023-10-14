@@ -15,7 +15,8 @@
     "test": "VITEST_SEGFAULT_RETRY=3 vitest --run",
     "build": "tsc --build tsconfig.build.json",
     "prebuild": "rimraf dist && tsc --build tsconfig.build.json --clean",
-    "watch": "tsc --build tsconfig.build.json --watch"
+    "watch": "tsc --build tsconfig.build.json --watch",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -36,13 +37,13 @@
   "homepage": "https://github.com/IWSLLC/react-blog-examples",
   "devDependencies": {
     "@iwsio/json-csv-core": "^1.0.0",
-    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
-    "@typescript-eslint/eslint-plugin": "^5.39.0",
-    "@typescript-eslint/parser": "^5.39.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.5",
+    "@typescript-eslint/parser": "^6.7.5",
     "eslint": "^8.10.0",
-    "eslint-import-resolver-typescript": "^3.5.5",
+    "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.0.0",
@@ -50,7 +51,7 @@
     "jsdom": "^22.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "vitest": "^0.32.2"
+    "vitest": "^0.34.6"
   },
   "peerDependencies": {
     "react": "^18"

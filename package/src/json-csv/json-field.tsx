@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { TextAreaField, useFieldManager } from '@iwsio/forms'
 
 const JsonField = ({ name, label, onChange }) => {

@@ -19,9 +19,7 @@ jobs:
           git config user.email github-actions@github.com
           git fetch
           git pull origin main
-          npm version patch -ws --include-workspace-root
-          git add .
-          git commit -m "CI - package versions"
-          npm version from-git --allow-same-version
+          npm version patch -ws && git add .
+          npm version patch --include-workspace-root -m "CI Version bump. Publishing react-blog-examples v%s" --force
           git push
           git push --tags

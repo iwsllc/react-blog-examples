@@ -1,4 +1,3 @@
-import React from 'react'
 import { render } from '@testing-library/react'
 
 describe('Example React', function() {
@@ -11,12 +10,12 @@ describe('Example React', function() {
 		}
 	}
 
-	test('should render without the name', async() => {
+	test('should render without the name', async () => {
 		const { getByText } = render(<Hello />)
 		expect(getByText('Hey, stranger')).to.be.ok
 	})
 
-	test('should render without the name', async() => {
+	test('should render without the name', async () => {
 		const { getByText } = render(<Hello name="Fred" />)
 		expect(getByText('Hello, Fred!')).to.be.ok
 	})
