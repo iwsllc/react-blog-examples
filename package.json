@@ -6,8 +6,7 @@
   "license": "BSD-3-Clause",
   "workspaces": [
     "demo",
-    "package",
-    "demo-bootstrap"
+    "package"
   ],
   "scripts": {
     "build": "npm run build --if-present -w package",
