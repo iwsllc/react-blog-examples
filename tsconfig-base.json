@@ -11,7 +11,7 @@
 		"inlineSourceMap": false,
 		"jsx": "react-jsx",
 		"lib": ["dom", "dom.iterable", "esnext"],
-		"module": "CommonJS",
+		"module": "node16",
 		"moduleResolution": "node16",
 		"resolveJsonModule": true,
 		"skipDefaultLibCheck": true,
