@@ -1,6 +1,6 @@
 {
   "name": "@iwsio/react-blog-examples-root",
-  "version": "2.0.5",
+  "version": "3.0.0-alpha.4",
   "description": "Example React provider to show one way of using a modal via context API and bootstrap 4 styling.",
   "author": "Nathan Bridgewater",
   "license": "BSD-3-Clause",
@@ -9,10 +9,8 @@
     "package"
   ],
   "scripts": {
-    "build": "npm run build --if-present -w package",
-    "dev": "npm-run-all -p dev:*",
-    "dev:demo": "npm start -w demo",
-    "dev:package": "npm run watch -w package"
+    "build": "npm run build -w package",
+    "dev": "npm start -w demo"
   },
   "devDependencies": {
     "npm-run-all": "^4.1.5"

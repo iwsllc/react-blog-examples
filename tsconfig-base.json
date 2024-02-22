@@ -11,13 +11,13 @@
 		"inlineSourceMap": false,
 		"jsx": "react-jsx",
 		"lib": ["dom", "dom.iterable", "esnext"],
-		"module": "node16",
-		"moduleResolution": "node16",
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
 		"resolveJsonModule": true,
 		"skipDefaultLibCheck": true,
 		"skipLibCheck": true,
 		"sourceMap": true,
-		"target": "ES5",
+		"target": "ES2015",
 		"types": ["vitest/globals"]
 	}
 }
