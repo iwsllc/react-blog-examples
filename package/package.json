@@ -24,10 +24,10 @@
   },
   "keywords": [
     "react",
-    "modal",
-    "bootstrap",
-    "context",
-    "provider"
+    "json",
+    "csv",
+    "typescript",
+    "example"
   ],
   "author": "Nathan Bridgewater",
   "license": "BSD-3-Clause",
