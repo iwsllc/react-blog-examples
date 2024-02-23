@@ -1,5 +1,7 @@
 # Blog Examples
 
+[![@iwsio/react-blog-examples: PUSH to main](https://github.com/iwsllc/react-blog-examples/actions/workflows/rbe-push-main.yaml/badge.svg)](https://github.com/iwsllc/react-blog-examples/actions/workflows/rbe-push-main.yaml)
+
 This is just a collection of React components I'm using for a blog. They're out here in case anyone else wants to use them as well.
 
 Example | Export
