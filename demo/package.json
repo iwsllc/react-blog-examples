@@ -1,6 +1,6 @@
 {
 	"name": "@iwsio/react-blog-examples-demo",
-	"version": "3.0.0",
+	"version": "3.0.1",
 	"private": true,
 	"devDependencies": {
 		"@testing-library/jest-dom": "^6.4.2",
