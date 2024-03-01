@@ -7,12 +7,14 @@ vi.mock('@iwsio/forms', () => ({ useFieldManager: vi.fn() }))
 
 describe('ResetButton', () => {
 	it('should reset the form', async () => {
-		const spy = vi.fn()
-		vi.spyOn(forms, 'useFieldManager').mockReturnValue({ reset: spy } as any)
-		render(<ResetButton />)
+		const spyFieldManagerReset = vi.fn()
+		const spyReset = vi.fn()
+		vi.spyOn(forms, 'useFieldManager').mockReturnValue({ reset: spyFieldManagerReset } as any)
+		render(<ResetButton onReset={spyReset} />)
 
 		await userEvent.click(screen.getByRole('button'))
 
-		expect(spy).toHaveBeenCalled()
+		expect(spyFieldManagerReset).toHaveBeenCalled()
+		expect(spyReset).toHaveBeenCalled()
 	})
 })
