@@ -2,10 +2,7 @@
   "name": "@iwsio/react-blog-examples",
   "version": "3.0.2",
   "description": "Example React components for blog posts.",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "exports": {
-    ".": "./dist/index.js",
     "./json-csv": "./dist/json-csv/index.js"
   },
   "files": [

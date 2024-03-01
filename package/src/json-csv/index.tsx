@@ -53,7 +53,7 @@ export const JsonCsvExample = forwardRef<HTMLFormElement, JsonCsvExampleProps>((
 			<div className="form-row my-3">
 				<div className="col">
 					<p className="text-right gap-2">
-						<ResetButton />
+						<ResetButton onReset={() => setResult(_old => '')} />
 						<button type="submit" className="btn">Convert</button>
 					</p>
 

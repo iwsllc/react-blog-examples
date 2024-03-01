@@ -1,4 +1,4 @@
-import { JsonCsvExample } from '@iwsio/react-blog-examples'
+import { JsonCsvExample } from '@iwsio/react-blog-examples/json-csv'
 
 export const App = () => {
 	return (
