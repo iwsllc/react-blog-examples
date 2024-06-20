@@ -62,6 +62,7 @@ export default [
 				'@stylistic/no-tabs': ['error', { allowIndentationTabs: true }],
 				'@stylistic/indent': ['error', 'tab'],
 				'@stylistic/jsx-indent': ['error', 'tab'],
+				'@stylistic/jsx-indent-props': ['error', 'tab'],
 				'@stylistic/comma-dangle': ['error', 'never']
 			},
 
