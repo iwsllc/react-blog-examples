@@ -1,7 +1,7 @@
 import { useFieldManager } from '@iwsio/forms'
 import { FC } from 'react'
 
-export const ResetButton: FC<{onReset: () => void}> = ({ onReset }) => {
+export const ResetButton: FC<{ onReset: () => void }> = ({ onReset }) => {
 	const { reset } = useFieldManager()
 	const handleReset = () => {
 		reset()

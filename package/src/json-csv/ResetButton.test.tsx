@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { ResetButton } from './ResetButton'
+import { ResetButton } from './ResetButton.js'
 import * as forms from '@iwsio/forms'
 import userEvent from '@testing-library/user-event'
 

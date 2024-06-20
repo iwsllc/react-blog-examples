@@ -1,8 +1,7 @@
-
 import { InvalidFeedbackForField, TextAreaField, useFieldManager } from '@iwsio/forms'
 import { FC, TextareaHTMLAttributes, useCallback, useEffect } from 'react'
 
-export const JsonField: FC<TextareaHTMLAttributes<HTMLTextAreaElement> & { name: string, label?: string, onChange?: (value: string) => void}> = ({ name, label, onChange, ...props }) => {
+export const JsonField: FC<TextareaHTMLAttributes<HTMLTextAreaElement> & { name: string, label?: string, onChange?: (value: string) => void }> = ({ name, label, onChange, ...props }) => {
 	const { checkFieldError, setFieldError, fields } = useFieldManager()
 	const fieldError = checkFieldError(name)
 
@@ -10,7 +9,8 @@ export const JsonField: FC<TextareaHTMLAttributes<HTMLTextAreaElement> & { name:
 		try {
 			JSON.parse(value)
 			if (onChange != null) onChange(value)
-		} catch (err) {
+		}
+		catch (err) {
 			setFieldError(name, 'Invalid JSON')
 			console.error(err)
 		}
