@@ -2,7 +2,8 @@
 	"extends": "./tsconfig",
 	"compilerOptions": {
 		"declarationMap": false,
-		"sourceMap": false,
+		"sourceMap": true,
+		"inlineSources": true,
 		"inlineSourceMap": false
 	},
 	"exclude": ["node_modules", "**/*.test.*", "**/__tests__/*", "**/__mocks__/*"]

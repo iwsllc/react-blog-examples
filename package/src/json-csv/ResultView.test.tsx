@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { ResultView } from './ResultView'
+import { ResultView } from './ResultView.js'
 
 describe('ResultView', () => {
 	it('should render without result', () => {

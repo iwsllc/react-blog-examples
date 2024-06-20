@@ -13,7 +13,7 @@ const OUTPUT_DIR = path.join(__dirname, './dist')
 
 function transformSharedToDefine(shared) {
 	const result = {}
-	Object.keys(shared).forEach(k => {
+	Object.keys(shared).forEach((k) => {
 		const v = shared[k]
 		result[`process.env.${k}`] = JSON.stringify(v)
 	})
@@ -34,7 +34,7 @@ function buildConfig(argv) {
 		STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY
 	}
 
-	let devtool; let plugins = []; let sourceMapLoader
+	let devtool, plugins = [], sourceMapLoader
 	if (!prodMode) {
 		devtool = 'source-map'
 		sourceMapLoader = {
@@ -42,7 +42,8 @@ function buildConfig(argv) {
 			enforce: 'pre',
 			use: ['source-map-loader']
 		}
-	} else {
+	}
+	else {
 		if (!CI) { // no bundle analyzer for a CI build
 			plugins = [new BundleAnalyzerPlugin({
 				openAnalyzer: false,

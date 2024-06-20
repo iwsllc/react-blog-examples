@@ -1,5 +1,5 @@
 import * as forms from '@iwsio/forms'
-import { JsonField } from './JsonField'
+import { JsonField } from './JsonField.js'
 import { render, screen, waitFor } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 import { FC, PropsWithChildren } from 'react'
@@ -7,7 +7,12 @@ import { FC, PropsWithChildren } from 'react'
 const { FieldManager, useFieldManager } = forms
 
 const Wrapper: FC<PropsWithChildren> = ({ children }) => {
-	return <FieldManager fields={{ items: '' }} nativeValidation>{children}<TestBits /></FieldManager>
+	return (
+		<FieldManager fields={{ items: '' }} nativeValidation>
+			{children}
+			<TestBits />
+		</FieldManager>
+	)
 }
 
 const TestBits = () => {

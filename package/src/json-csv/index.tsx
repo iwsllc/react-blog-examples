@@ -2,11 +2,11 @@ import { FieldManager, FieldValues, useForwardRef } from '@iwsio/forms'
 import { toCsv } from '@iwsio/json-csv-core'
 import { ExportOptions } from '@iwsio/json-csv-core/types'
 import { forwardRef, useEffect, useState } from 'react'
-import { JsonField } from './JsonField'
-import { ResetButton } from './ResetButton'
-import { ResultView } from './ResultView'
-import { items as initialItems, options as initialOptions } from './data'
-import { simpleErrorMapping } from './simpleErrors'
+import { JsonField } from './JsonField.js'
+import { ResetButton } from './ResetButton.js'
+import { ResultView } from './ResultView.js'
+import { items as initialItems, options as initialOptions } from './data.js'
+import { simpleErrorMapping } from './simpleErrors.js'
 
 export type JsonCsvExampleProps = { resultUpdated?: () => void }
 
@@ -25,7 +25,8 @@ export const JsonCsvExample = forwardRef<HTMLFormElement, JsonCsvExampleProps>((
 			const items = JSON.parse(values.items)
 			const options = JSON.parse(values.options)
 			csv = toCsv(items, options)
-		} catch (err) {
+		}
+		catch (err) {
 			console.log(err)
 		}
 		setResult(csv)
@@ -41,14 +42,8 @@ export const JsonCsvExample = forwardRef<HTMLFormElement, JsonCsvExampleProps>((
 	return (
 		<FieldManager fields={{ ...defaultValues }} defaultValues={defaultValues} onValidSubmit={handleValidSubmit} errorMapping={simpleErrorMapping} ref={refDom}>
 			<div className="flex flex-col sm:flex-row sm:gap-4">
-				<JsonField
-					name="items"
-					label="Items"
-				/>
-				<JsonField
-					name="options"
-					label="Options"
-				/>
+				<JsonField name="items" label="Items" />
+				<JsonField name="options" label="Options" />
 			</div>
 			<div className="form-row my-3">
 				<div className="col">
