@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react'
 import { ResetButton } from './ResetButton.js'
-import * as forms from '@iwsio/forms'
+import * as forms from '@iwsio/forms/useFieldManager'
 import userEvent from '@testing-library/user-event'
 
-vi.mock('@iwsio/forms', () => ({ useFieldManager: vi.fn() }))
+vi.mock('@iwsio/forms/useFieldManager', () => ({ useFieldManager: vi.fn() }))
 
 describe('ResetButton', () => {
 	it('should reset the form', async () => {

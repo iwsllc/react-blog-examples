@@ -1,4 +1,4 @@
-import { useFieldManager } from '@iwsio/forms'
+import { useFieldManager } from '@iwsio/forms/useFieldManager'
 import { FC } from 'react'
 
 export const ResetButton: FC<{ onReset: () => void }> = ({ onReset }) => {

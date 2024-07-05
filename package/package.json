@@ -1,6 +1,6 @@
 {
   "name": "@iwsio/react-blog-examples",
-  "version": "3.1.0",
+  "version": "3.2.0-alpha.2",
   "description": "Example React components for blog posts.",
   "exports": {
     "./json-csv": "./dist/json-csv/index.js"
@@ -48,7 +48,7 @@
     "react-dom": "^18"
   },
   "dependencies": {
-    "@iwsio/forms": "^4.2.1",
+    "@iwsio/forms": "^4.3.0",
     "@iwsio/json-csv-core": "^1.1.5"
   }
 }

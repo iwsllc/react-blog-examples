@@ -1,4 +1,4 @@
-import { ErrorMapping } from '@iwsio/forms'
+import { ErrorMapping } from '@iwsio/forms/useErrorMapping'
 
 export const simpleErrorMapping: ErrorMapping = {
 	badInput: 'Invalid',

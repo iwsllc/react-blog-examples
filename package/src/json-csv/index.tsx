@@ -1,4 +1,3 @@
-import { FieldManager, FieldValues, useForwardRef } from '@iwsio/forms'
 import { toCsv } from '@iwsio/json-csv-core'
 import { ExportOptions } from '@iwsio/json-csv-core/types'
 import { forwardRef, useEffect, useState } from 'react'
@@ -7,6 +6,9 @@ import { ResetButton } from './ResetButton.js'
 import { ResultView } from './ResultView.js'
 import { items as initialItems, options as initialOptions } from './data.js'
 import { simpleErrorMapping } from './simpleErrors.js'
+import { useForwardRef } from '@iwsio/forms/useForwardRef'
+import { FieldValues } from '@iwsio/forms/types'
+import { FieldManager } from '@iwsio/forms/FieldManager'
 
 export type JsonCsvExampleProps = { resultUpdated?: () => void }
 

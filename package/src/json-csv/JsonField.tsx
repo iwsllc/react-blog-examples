@@ -1,4 +1,6 @@
-import { InvalidFeedbackForField, TextAreaField, useFieldManager } from '@iwsio/forms'
+import { InvalidFeedbackForField } from '@iwsio/forms/InvalidFeedbackForField'
+import { TextAreaField } from '@iwsio/forms/TextAreaField'
+import { useFieldManager } from '@iwsio/forms/useFieldManager'
 import { FC, TextareaHTMLAttributes, useCallback, useEffect } from 'react'
 
 export const JsonField: FC<TextareaHTMLAttributes<HTMLTextAreaElement> & { name: string, label?: string, onChange?: (value: string) => void }> = ({ name, label, onChange, ...props }) => {
