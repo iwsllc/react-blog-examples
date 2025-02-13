@@ -41,7 +41,7 @@ export const options = {
 		{
 			name: 'downloaded',
 			label: 'Downloaded',
-			transform: v => v ? 'downloaded' : 'pending'
+			transform: (v: unknown) => v ? 'downloaded' : 'pending'
 		},
 		{
 			name: 'registration.year',
@@ -50,7 +50,7 @@ export const options = {
 		{
 			name: 'registration.level',
 			label: 'Level',
-			transform: function (value) {
+			transform: (value: unknown) => {
 				switch (value) {
 					case 1: return 'Test 1'
 					case 2: return 'Test 2'

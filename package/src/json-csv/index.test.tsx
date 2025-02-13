@@ -1,5 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+
 import { JsonCsvExample } from './index.js'
 
 vi.mock('./ResultView', () => ({ ResultView: ({ result }: any): any => <div data-testid="result">{result}</div> }))

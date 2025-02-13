@@ -1,8 +1,11 @@
+import './stylesheets/index.css'
+
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
+
 import { App } from './App.js'
+import { BUILD_SHA } from './constants.js'
 import reportWebVitals from './reportWebVitals.js'
-import './stylesheets/index.css'
 
 const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
@@ -11,6 +14,7 @@ const root = ReactDOM.createRoot(
 root.render(
 	<StrictMode>
 		<App />
+		<span className="hidden">{BUILD_SHA}</span>
 	</StrictMode>
 )
 
