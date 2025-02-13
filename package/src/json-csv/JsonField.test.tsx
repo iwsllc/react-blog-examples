@@ -1,8 +1,9 @@
 import * as forms from '@iwsio/forms'
-import { JsonField } from './JsonField.js'
 import { render, screen, waitFor } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 import { FC, PropsWithChildren } from 'react'
+
+import { JsonField } from './JsonField.js'
 
 const { FieldManager, useFieldManager } = forms
 

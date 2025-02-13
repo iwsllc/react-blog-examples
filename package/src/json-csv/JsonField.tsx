@@ -11,12 +11,11 @@ export const JsonField: FC<TextareaHTMLAttributes<HTMLTextAreaElement> & { name:
 		try {
 			JSON.parse(value)
 			if (onChange != null) onChange(value)
-		}
-		catch (err) {
+		} catch (err) {
 			setFieldError(name, 'Invalid JSON')
 			console.error(err)
 		}
-	}, [onChange, setFieldError])
+	}, [name, onChange, setFieldError])
 
 	useEffect(() => {
 		if (fields[name] == null) return
@@ -27,15 +26,15 @@ export const JsonField: FC<TextareaHTMLAttributes<HTMLTextAreaElement> & { name:
 		return () => {
 			clearTimeout(id)
 		}
-	}, [fields[name]])
+	}, [checkValueAndTriggerChange, fields, name])
 
 	return (
 		<div className="grow">
-			<label className="label flex-col items-start prose">
+			<label className="label prose flex-col items-start">
 				<h3>{label}</h3>
-				<div className="w-full indicator">
+				<div className="indicator w-full">
 					<InvalidFeedbackForField name={name} className="indicator-item badge badge-error" />
-					<TextAreaField name={name} className={`w-full font-mono textarea textarea-bordered ${fieldError ? 'textarea-error' : ''}`} rows={25} required {...props} />
+					<TextAreaField name={name} className={`textarea textarea-bordered w-full font-mono ${fieldError ? 'textarea-error' : ''}`} rows={25} required {...props} />
 				</div>
 			</label>
 		</div>
