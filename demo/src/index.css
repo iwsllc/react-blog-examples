@@ -35,6 +35,13 @@
     }
   }
 
+  .indicator {
+    @apply absolute -top-4 left-1/2 -translate-x-1/2 rounded-full;
+    &.indicator-error {
+      @apply bg-red-500 px-2 py-0 text-white;
+    }
+  }
+
   .textarea {
     @apply p-2;
   }

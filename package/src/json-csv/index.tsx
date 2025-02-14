@@ -54,7 +54,7 @@ export const JsonCsvExample = ({ resultUpdated, className = '', ref }: JsonCsvEx
 			</div>
 			<div className="flex items-center justify-end gap-2">
 				<ResetButton className="btn btn-accent" onReset={() => setResult(_old => '')} />
-				<button type="submit" className="btn btn-primary">Convert</button>
+				<button type="submit" className="btn">Convert</button>
 			</div>
 			<ResultView result={result} />
 		</FieldManager>
