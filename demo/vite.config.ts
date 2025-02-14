@@ -1,11 +1,12 @@
 /// <reference types="vitest" />
 // import { resolve } from 'node:path'
 
+import tw from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vitest/config'
 
 export default defineConfig(({ mode }) => ({
-	plugins: [react()],
+	plugins: [react(), tw()],
 	build: {
 		minify: mode === 'production',
 		sourcemap: mode !== 'production',

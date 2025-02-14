@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@config "../tailwind.config.cjs";
+
+* {
+  outline-width: 0px;
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 border border-gray-200 rounded-md bg-gray-100 text-gray-800;
+    &:hover {
+      @apply bg-gray-200 border-gray-300 cursor-pointer;
+    }
+    &:active {
+      @apply bg-gray-300;
+    }
+  }
+  .btn-primary {
+    @apply bg-indigo-500 text-white;
+    &:hover {
+      @apply bg-indigo-600;
+    }
+    &:active {
+      @apply bg-indigo-700;
+    }
+  }
+  .btn-accent {
+    @apply bg-slate-300 text-black;
+    &:hover {
+      @apply bg-slate-500 text-white;
+    }
+    &:active {
+      @apply bg-slate-600 text-white;
+    }
+  }
+
+  .textarea {
+    @apply p-2;
+  }
+  .textarea-bordered {
+    @apply border border-gray-200 rounded-md;
+  }
+}

@@ -1,9 +1,8 @@
 import { FieldManager } from '@iwsio/forms/FieldManager'
 import { FieldValues } from '@iwsio/forms/types'
-import { useForwardRef } from '@iwsio/forms/useForwardRef'
 import { toCsv } from '@iwsio/json-csv-core'
 import { ExportOptions } from '@iwsio/json-csv-core/types'
-import { forwardRef, useEffect, useState } from 'react'
+import { Ref, useEffect, useImperativeHandle, useRef, useState } from 'react'
 
 import { items as initialItems, options as initialOptions } from './data.js'
 import { JsonField } from './JsonField.js'
@@ -11,15 +10,21 @@ import { ResetButton } from './ResetButton.js'
 import { ResultView } from './ResultView.js'
 import { simpleErrorMapping } from './simpleErrors.js'
 
-export interface JsonCsvExampleProps { resultUpdated?: () => void }
+export interface JsonCsvExampleProps {
+	resultUpdated?: () => void
+	ref?: Ref<HTMLFormElement>
+	className?: string
+}
 
 export interface JsonValues { items: Record<string, any>[], options: Partial<ExportOptions> }
 
 const defaultValues = { items: JSON.stringify(initialItems, null, 2), options: JSON.stringify(initialOptions, null, 2) }
 
 // forwarding ref here because I was tinkering with hljs and the example dom
-export const JsonCsvExample = forwardRef<HTMLFormElement, JsonCsvExampleProps>(({ resultUpdated }, ref) => {
-	const refDom = useForwardRef<HTMLFormElement>(ref)
+export const JsonCsvExample = ({ resultUpdated, className = '', ref }: JsonCsvExampleProps) => {
+	const refDom = useRef<HTMLFormElement>(null)
+	useImperativeHandle(ref, () => refDom.current!, [refDom])
+
 	const [result, setResult] = useState('')
 
 	const handleValidSubmit = (values: FieldValues) => {
@@ -42,25 +47,16 @@ export const JsonCsvExample = forwardRef<HTMLFormElement, JsonCsvExampleProps>((
 	}, [result, resultUpdated])
 
 	return (
-		<FieldManager fields={{ ...defaultValues }} defaultValues={defaultValues} onValidSubmit={handleValidSubmit} errorMapping={simpleErrorMapping} ref={refDom}>
-			<div className="flex flex-col sm:flex-row sm:gap-4">
+		<FieldManager className={`flex flex-col gap-2 ${className ?? ''}`} fields={{ ...defaultValues }} defaultValues={defaultValues} onValidSubmit={handleValidSubmit} errorMapping={simpleErrorMapping} ref={refDom}>
+			<div className="flex items-stretch gap-4">
 				<JsonField name="items" label="Items" />
 				<JsonField name="options" label="Options" />
 			</div>
-			<div className="form-row my-3">
-				<div className="col">
-					<p className="gap-2 text-right">
-						<ResetButton onReset={() => setResult(_old => '')} />
-						<button type="submit" className="btn">Convert</button>
-					</p>
-
-				</div>
+			<div className="flex items-center justify-end gap-2">
+				<ResetButton className="btn btn-accent" onReset={() => setResult(_old => '')} />
+				<button type="submit" className="btn btn-primary">Convert</button>
 			</div>
 			<ResultView result={result} />
 		</FieldManager>
 	)
-})
-
-JsonCsvExample.displayName = 'JsonCsvExample'
-
-export default JsonCsvExample
+}

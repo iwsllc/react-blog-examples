@@ -1,11 +1,13 @@
 import { useFieldManager } from '@iwsio/forms/useFieldManager'
-import { FC } from 'react'
+import { ComponentProps } from 'react'
 
-export const ResetButton: FC<{ onReset: () => void }> = ({ onReset }) => {
+export interface ResetButtonProps extends Pick<ComponentProps<'button'>, 'ref' | 'className'> { onReset: () => void }
+
+export const ResetButton = ({ onReset, ...props }: ResetButtonProps) => {
 	const { reset } = useFieldManager()
 	const handleReset = () => {
 		reset()
 		onReset()
 	}
-	return <button type="button" className="btn btn-accent mr-2" onClick={handleReset}>Reset</button>
+	return <button {...props} type="button" onClick={handleReset}>Reset</button>
 }

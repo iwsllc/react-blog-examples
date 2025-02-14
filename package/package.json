@@ -1,6 +1,6 @@
 {
   "name": "@iwsio/react-blog-examples",
-  "version": "4.0.0",
+  "version": "4.0.1-alpha.1",
   "description": "Example React components for blog posts.",
   "exports": {
     "./json-csv": "./dist/json-csv/index.js"
@@ -13,7 +13,7 @@
     "test": "vitest --run",
     "build": "tsc --build tsconfig.build.json",
     "prebuild": "rimraf dist && tsc --build tsconfig.build.json --clean",
-    "watch": "tsc --build tsconfig.build.json --watch",
+    "watch": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
     "lint": "eslint ."
   },
   "repository": {
@@ -34,13 +34,15 @@
   },
   "homepage": "https://github.com/IWSLLC/react-blog-examples",
   "devDependencies": {
-    "@iwsio/forms": "^5.0.2",
+    "@iwsio/forms": "^5.0.3",
     "@iwsio/json-csv-core": "^1.2.0",
+    "@tailwindcss/typography": "^0.5.16",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^14.6.1",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
+    "classnames": "^2.5.1",
     "jsdom": "^26.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -48,9 +50,9 @@
     "vitest": "^3.0.5"
   },
   "peerDependencies": {
-    "react": ">= 18 < 20",
-    "react-dom": ">= 18 < 20",
     "@iwsio/forms": ">= 5",
-    "@iwsio/json-csv-core": ">= 1"
+    "@iwsio/json-csv-core": ">= 1",
+    "react": ">= 18 < 20",
+    "react-dom": ">= 18 < 20"
   }
 }
