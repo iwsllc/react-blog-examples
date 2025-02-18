@@ -55,8 +55,8 @@ describe('JsonField', () => {
 		await userEvent.click(screen.getByTestId('setError'))
 
 		await waitFor(() => {
-			expect(screen.getByText('test error').className).to.eq('indicator-item badge badge-error')
-			expect(screen.getByTestId('field').className).to.match(/textarea-error/)
+			expect(screen.getByText('test error').className).to.eq('indicator indicator-error')
+			expect(screen.getByTestId('field').className).to.match(/!border-red-500/iu)
 			expect(spyChange).not.toHaveBeenCalled()
 		})
 	})
