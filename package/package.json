@@ -1,6 +1,6 @@
 {
   "name": "@iwsio/react-blog-examples",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "Example React components for blog posts.",
   "exports": {
     "./json-csv": "./dist/json-csv/index.js"

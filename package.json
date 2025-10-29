@@ -1,6 +1,6 @@
 {
   "name": "@iwsio/react-blog-examples-root",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "Example React provider to show one way of using a modal via context API and bootstrap 4 styling.",
   "author": "Nathan Bridgewater",
   "license": "BSD-3-Clause",
