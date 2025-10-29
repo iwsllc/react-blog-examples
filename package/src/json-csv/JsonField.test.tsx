@@ -56,7 +56,7 @@ describe('JsonField', () => {
 
 		await waitFor(() => {
 			expect(screen.getByText('test error').className).to.eq('indicator indicator-error')
-			expect(screen.getByTestId('field').className).to.match(/!border-red-500/iu)
+			expect(screen.getByTestId('field').className).to.match(/textarea-error/iu)
 			expect(spyChange).not.toHaveBeenCalled()
 		})
 	})

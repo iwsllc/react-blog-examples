@@ -36,7 +36,7 @@ export const JsonField: FC<TextareaHTMLAttributes<HTMLTextAreaElement> & { name:
 				<div className="relative flex">
 					{/* <div className="before-content-['test'] flex before:absolute before:inset-0">test</div> */}
 					<InvalidFeedbackForField name={name} className="indicator indicator-error" />
-					<TextAreaField name={name} className={classNames('textarea textarea-bordered grow font-mono', { '!border-red-500': fieldError != null })} rows={25} required {...props} />
+					<TextAreaField name={name} className={classNames('textarea textarea-bordered grow font-mono', { 'textarea-error': fieldError != null })} rows={25} required {...props} />
 				</div>
 			</label>
 		</div>
