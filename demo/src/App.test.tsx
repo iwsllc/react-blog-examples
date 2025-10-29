@@ -1,9 +1,12 @@
 import { render, screen } from '@testing-library/react'
+import * as example from '@iwsio/react-blog-examples/json-csv'
 
 import { App } from './App.js'
 
+vi.mock('@iwsio/react-blog-examples/json-csv')
+
 test('renders learn react link', () => {
+	vi.spyOn(example, 'JsonCsvExample').mockImplementation(() => <span data-testid="JsonCsvExample"></span>)
 	render(<App />)
-	const linkElement = screen.getByText(/learn react/i)
-	expect(linkElement).toBeInTheDocument()
+	expect(screen.getByTestId('JsonCsvExample')).toBeInTheDocument()
 })

@@ -1,13 +1,13 @@
 import * as forms from '@iwsio/forms'
 import { render, screen, waitFor } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
-import { FC, PropsWithChildren } from 'react'
+import { PropsWithChildren } from 'react'
 
 import { JsonField } from './JsonField.js'
 
 const { FieldManager, useFieldManager } = forms
 
-const Wrapper: FC<PropsWithChildren> = ({ children }) => {
+const Wrapper = ({ children }: PropsWithChildren) => {
 	return (
 		<FieldManager fields={{ items: '' }} nativeValidation>
 			{children}

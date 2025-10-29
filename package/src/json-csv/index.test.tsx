@@ -1,9 +1,9 @@
 import { render, screen, waitFor } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { userEvent } from '@testing-library/user-event'
 
 import { JsonCsvExample } from './index.js'
 
-vi.mock('./ResultView', () => ({ ResultView: ({ result }: any): any => <div data-testid="result">{result}</div> }))
+vi.mock('./ResultView.js', () => ({ ResultView: ({ result }: any): any => <div data-testid="result">{result}</div> }))
 
 describe('index', () => {
 	it('should work with init data', async () => {
@@ -26,11 +26,13 @@ describe('index', () => {
 
 		spy.mockClear()
 
-		await userEvent.type(container.querySelector('textarea[name="items"]'), '123') // maybe three times
+		const input = container.querySelector('textarea[name="items"]') as HTMLTextAreaElement | null
+		if (!input) throw new Error('No input found')
+		await userEvent.type(input, '123') // maybe three times
 
 		await waitFor(() => {
 			expect(spy).not.toHaveBeenCalled()
-			expect(screen.queryByTestId('result').textContent).to.be.ok // remains the same
+			expect(screen.queryByTestId('result')?.textContent).to.be.ok // remains the same
 		})
 	})
 })
