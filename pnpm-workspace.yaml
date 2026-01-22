@@ -1,0 +1,10 @@
+packages:
+  - 'package'
+  - 'demo'
+
+allowBuilds:
+  esbuild: false
+  unrs-resolver: true
+
+minimumReleaseAgeExclude:
+  - pnpm
