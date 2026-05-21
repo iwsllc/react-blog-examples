@@ -16,10 +16,7 @@
     "watch": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
     "lint": "eslint ."
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/IWSLLC/react-blog-examples.git"
-  },
+  "repository": "https://github.com/iwsllc/react-blog-examples",
   "keywords": [
     "react",
     "json",
