@@ -4,41 +4,53 @@ on:
   push:
     branches: [ main ]
 
+permissions:
+  id-token: write  # Required for OIDC
+  contents: read
+
 jobs:
   tests:
     if: ${{ !contains(github.event.head_commit.message, '#skip') }}
-    uses: iwsllc/workflows/.github/workflows/test.yaml@v2
+    uses: iwsllc/workflows/.github/workflows/test.yaml@v7
     with:
       registry-url: 'https://registry.npmjs.org'
       scope: '@iwsio'
-      cache: npm
+      cache: pnpm
+      use-pnpm: true
       node-version-file: '.nvmrc'
-      install-command: npm ci
-      test-command: npm run test -w package
+      install-command: pnpm install
+      test-command: pnpm -F react-blog-examples test
   version:
     needs: tests
     if: ${{ !contains(github.event.head_commit.message, '#skip') }}
-    uses: iwsllc/workflows/.github/workflows/version.yaml@v2
+    concurrency:
+      group: 'versioning-automation'
+      cancel-in-progress: false
+    uses: iwsllc/workflows/.github/workflows/version-as-app.yaml@v7
     with:
       ref: main
-      registry-url: 'https://registry.npmjs.org'
+      use-pnpm: true
+      cache: pnpm
       node-version-file: '.nvmrc'
-      cache: npm
       scope: '@iwsio'
-      version-command: npm version patch -ws --include-workspace-root
-      tag-includes-name: false
+      version-command: pnpm -w -r version patch
+    secrets:
+      IWS_VERSION_BOT_PK: ${{ secrets.IWS_VERSION_BOT_PK}}
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   publish:
     needs: version
     if: ${{ !contains(github.event.head_commit.message, '#skip') }}
-    uses: iwsllc/workflows/.github/workflows/publish.yaml@v2
+    uses: iwsllc/workflows/.github/workflows/publish.yaml@v7
     with:
       ref: main
       registry-url: 'https://registry.npmjs.org'
-      cache: npm
+      cache: pnpm
+      use-pnpm: true
       node-version-file: '.nvmrc'
+      skip-node-auth: true
       scope: '@iwsio'
-      install-command: npm ci
-      build-command: npm run build -w package
-      publish-command: npm publish -w package --access public
+      install-command: pnpm install
+      build-command: pnpm -F react-blog-examples build
+      publish-command: pnpm -F react-blog-examples publish --access public
     secrets:
       NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
